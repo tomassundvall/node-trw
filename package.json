@@ -1,0 +1,19 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Snippets and tests for the book \"Node.JS the right way\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomassundvall/node-trw.git"
+  },
+  "author": "Tomas Sundvall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomassundvall/node-trw/issues"
+  },
+  "homepage": "https://github.com/tomassundvall/node-trw#readme"
+}
