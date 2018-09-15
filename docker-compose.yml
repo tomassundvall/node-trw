@@ -9,6 +9,14 @@ services:
     working_dir: /home/node/app
     command: node src/kap0.js
 
+
+  kap2:
+    image: node:8.12.0-slim
+    volumes:
+      - ./:/home/node/app
+    working_dir: /home/node/app
+    command: node src/kap2.js target.txt
+
   
   cmd:
     image: node:8.12.0-slim
