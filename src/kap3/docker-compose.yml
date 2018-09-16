@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+
+  client:
+    image: node:8.12.0-slim
+    volumes:
+      - ./:/home/node/app/src/kap3
+    working_dir: /home/node/app/src/kap3
+    command: node client.js
+    links:
+      - test-server
+    depends_on:
+      - test-server
+
+  
+  server:
+    image: node:8.12.0-slim
+    volumes:
+      - ./:/home/node/app/src/kap3
+    working_dir: /home/node/app/src/kap3
+    command: node server.js ./data/target.txt
+
+
+  test-server:
+    image: node:8.12.0-slim
+    volumes:
+      - ./:/home/node/app/src/kap3
+    working_dir: /home/node/app/src/kap3
+    command: node test-server.js
+
+  
+  cmd:
+    image: node:8.12.0-slim
+    volumes:
+      - ./:/home/node/app/src/kap3
+    working_dir: /home/node/app/src/kap3
+    command: /bin/bash

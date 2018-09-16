@@ -17,6 +17,46 @@ services:
     working_dir: /home/node/app
     command: node src/kap2.js target.txt
 
+
+  kap3:
+    image: node:8.12.0-slim
+    volumes:
+      - ./:/home/node/app
+    working_dir: /home/node/app
+    command: node src/kap3.client.js
+    links:
+      - kap3-server
+    depends_on:
+      - kap3-server
+
+      
+  kap3-test:
+    image: node:8.12.0-slim
+    volumes:
+      - ./:/home/node/app
+    working_dir: /home/node/app
+    command: node src/kap3.client.js
+    links:
+      - kap3-test-server
+    depends_on:
+      - kap3-test-server
+
+  
+  kap3-server:
+    image: node:8.12.0-slim
+    volumes:
+      - ./:/home/node/app
+    working_dir: /home/node/app
+    command: node src/kap3.server.js target.txt
+
+
+  kap3-test-server:
+    image: node:8.12.0-slim
+    volumes:
+      - ./:/home/node/app
+    working_dir: /home/node/app
+    command: node src/kap3.test-json-service.js
+
   
   cmd:
     image: node:8.12.0-slim
