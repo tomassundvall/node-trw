@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+
+  zmq-client:
+    image: node:8.12.0-slim
+    volumes:
+      - ./:/home/node/app/src/kap4
+    working_dir: /home/node/app/src/kap4
+    links:
+      - zmq-server
+    depends_on:
+      - zmq-server
+    command: node app/zmq-watcher-sub.js
+
+  zmq-server:
+    image: node:8.12.0-slim
+    volumes:
+      - ./:/home/node/app/src/kap4
+    working_dir: /home/node/app/src/kap4
+    ports:
+      - 60400:60400
+    command: npm start
+
+  cmd:
+    image: node:8.12.0-slim
+    volumes:
+      - ./:/home/node/app/src/kap4
+    working_dir: /home/node/app/src/kap4
+    command: /bin/bash

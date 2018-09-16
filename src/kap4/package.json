@@ -1,0 +1,17 @@
+{
+  "name": "kap4",
+  "version": "1.0.0",
+  "description": "microservices with zero mq",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app/zmq-watcher-pub.js ./data/target.txt"
+  },
+  "keywords": [
+    "tutorial"
+  ],
+  "author": "Tomas Sundvall",
+  "license": "ISC",
+  "dependencies": {
+    "zeromq": "4.6.0"
+  }
+}
